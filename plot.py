@@ -30,8 +30,8 @@ print(data)
 
 title=filename
 
-stress= data[:,3]
-strain= data[:,7]
+stress=- data[:,3]
+strain=- data[:,7]
 plt.plot(stress,strain, color='r',label=title)
 plt.xlabel("Strain [Ext %]")
 plt.ylabel("Stress [MPa]")
