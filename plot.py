@@ -8,21 +8,21 @@ filename="raw-data/glass.raw"
 #filename="raw-data/aluminum_copy.raw"
 #filename="raw-data/tungsten_copy.raw"
 #print(sys.argv)        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
+material=filename[9:-4]
 data = np.loadtxt(filename,skiprows=32,delimiter=',')   # Attempts to load filename into local variable data.
 print(data)
 
-title=filename
-
 stress= -data[:,3]
 strain= -data[:,7]
-plt.plot(stress,strain, color='r',label=title)
+plt.plot(strain,stress, color='r',label=material)
 plt.xlabel("Strain [Ext %]")
 plt.ylabel("Stress [MPa]")
 plt.grid(True)
 plt.legend(loc='best')
+plt.title(str(material)+ ' Stress vs. Strain Graph')
 
-first, second=np.polyfit(stress,strain,1)
-line_x=np.linspace(min(stress),max(stress))
+first, second=np.polyfit(strain,stress,1)
+line_x=np.linspace(min(strain),max(strain))
 line_y=np.polyval([first,second],line_x)
 
 plt.plot(line_x,line_y, color= 'k',label= 'Linear Fit')
