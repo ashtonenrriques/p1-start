@@ -2,7 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 #filename = sys.argv[1]
-filename="raw-data/Sp15_245L_sect-001_group-1_glass.raw"
+filename="raw-data/glass.raw"
+#filename="raw-data/steel.raw"
+#filename="raw-data/ultem.raw"
+#filename="raw-data/aluminum.raw"
+#filename="raw-data/tungsten.raw
 #print(sys.argv)        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data = np.loadtxt(filename,skiprows=32,delimiter=',')   # Attempts to load filename into local variable data.
 print(data)
