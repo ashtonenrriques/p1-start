@@ -42,11 +42,12 @@ first, second=np.polyfit(stress,strain,1)
 line_x=np.linspace(min(stress),max(stress))
 line_y=np.polyval([first,second],line_x)
 
-plt.plot(line_x,line_y, color= 'k')
+plt.plot(line_x,line_y, color= 'k',label= 'Linear Fit')
+plt.legend(loc='best')
 plt.savefig(filename+ '.pdf')
+print(" Modulus of Elasticicty : " + str(first) + str(' Mpa'))
 plt.show()
 
-print(" Modulus of Elasticicty : " + str(first) + str(' Mpa'))
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
