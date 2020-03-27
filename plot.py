@@ -2,14 +2,36 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 #filename = sys.argv[1]
-#filename="raw-data/glass.raw"
+filename="raw-data/glass.raw"
 #filename="raw-data/steel.raw"
 #filename="raw-data/ultem.raw"
 #filename="raw-data/aluminum_copy.raw"
-filename="raw-data/tungsten_copy.raw"
+#filename="raw-data/tungsten_copy.raw"
 #print(sys.argv)        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data = np.loadtxt(filename,skiprows=32,delimiter=',')   # Attempts to load filename into local variable data.
 print(data)
+
+title=filename
+
+stress= -data[:,3]
+strain= -data[:,7]
+plt.plot(stress,strain, color='r',label=title)
+plt.xlabel("Strain [Ext %]")
+plt.ylabel("Stress [MPa]")
+plt.grid(True)
+plt.legend(loc='best')
+
+first, second=np.polyfit(stress,strain,1)
+line_x=np.linspace(min(stress),max(stress))
+line_y=np.polyval([first,second],line_x)
+
+plt.plot(line_x,line_y, color= 'k',label= 'Linear Fit')
+plt.legend(loc='best')
+plt.savefig(filename+ '.pdf')
+print(" Modulus of Elasticicty : " + str(first) + str(' Mpa'))
+plt.show()
+
+
 
 ## Part 0
 # Figure out what arguments to add to the loadtxt function call
@@ -27,34 +49,11 @@ print(data)
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
 
-
-title=filename
-
-stress=- data[:,3]
-strain=- data[:,7]
-plt.plot(stress,strain, color='r',label=title)
-plt.xlabel("Strain [Ext %]")
-plt.ylabel("Stress [MPa]")
-plt.grid(True)
-plt.legend(loc='best')
-
-first, second=np.polyfit(stress,strain,1)
-line_x=np.linspace(min(stress),max(stress))
-line_y=np.polyval([first,second],line_x)
-
-plt.plot(line_x,line_y, color= 'k',label= 'Linear Fit')
-plt.legend(loc='best')
-plt.savefig(filename+ '.pdf')
-print(" Modulus of Elasticicty : " + str(first) + str(' Mpa'))
-plt.show()
-
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
 
-###everything is working fine after editing the tungsten and aluminum files
-
-#first, second=np.polyfit(stress,strain,1)
+###everything is working fine after editing the tungsten and aluminum f
 
 ## Part 3
 # Use linear regression to calculate the slope of the linear part of
@@ -71,4 +70,4 @@ plt.show()
 # your .gitignore file so you're not committing the figures to your repository.
 
 
-
+###Everything seems to be working fine
