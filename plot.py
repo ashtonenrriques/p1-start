@@ -43,7 +43,9 @@ line_x=np.linspace(min(stress),max(stress))
 line_y=np.polyval([first,second],line_x)
 
 plt.plot(line_x,line_y, color= 'k')
+plt.savefig(filename+ '.pdf')
 plt.show()
+
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
