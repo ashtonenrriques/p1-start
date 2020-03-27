@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 #filename = sys.argv[1]
-filename="raw-data/glass.raw"
+#filename="raw-data/glass.raw"
 #filename="raw-data/steel.raw"
 #filename="raw-data/ultem.raw"
-#filename="raw-data/aluminum.raw"
-#filename="raw-data/tungsten.raw
+#filename="raw-data/aluminum_copy.raw"
+filename="raw-data/tungsten_copy.raw"
 #print(sys.argv)        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data = np.loadtxt(filename,skiprows=32,delimiter=',')   # Attempts to load filename into local variable data.
 print(data)
@@ -34,6 +34,8 @@ plt.show()
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
+
+###everything is working fine after editing the tungsten and aluminum files
 
 
 ## Part 3
