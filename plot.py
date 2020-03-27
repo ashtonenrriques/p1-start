@@ -46,7 +46,7 @@ plt.plot(line_x,line_y, color= 'k')
 plt.savefig(filename+ '.pdf')
 plt.show()
 
-
+print(" Modulus of Elasticicty :" + str(first) + str('Mpa'))
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
