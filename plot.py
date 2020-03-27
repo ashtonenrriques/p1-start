@@ -28,7 +28,7 @@ line_y=np.polyval([first,second],line_x)
 plt.plot(line_x,line_y, color= 'k',label= 'Linear Fit')
 plt.legend(loc='best')
 plt.savefig(filename+ '.pdf')
-print(" Modulus of Elasticicty : " + str(first) + str(' Mpa'))
+print(" Modulus of Elasticity : " + str(first) + str(' Mpa'))
 plt.show()
 
 
